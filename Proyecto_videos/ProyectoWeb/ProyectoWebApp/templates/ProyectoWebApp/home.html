@@ -1,0 +1,43 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <!-- Primer Bloque -->
+    <section class="page-section cta" style="background-color: #ff0000; color: #000000;">
+      <div class="container" >
+        <div class="row">
+          
+          <div class="col-xl-9 mx-auto">
+            
+            <div class="cta-inner text-center rounded" style="float: right;">
+              <img class="img-fluid mb-3" src="{% static 'ProyectoWebApp/img/logo-oficopyer-default00.png' %}" style="float: center">
+              <h2 class="section-heading mb-4">
+                <span style="color: #000000;" class="section-heading-upper">Compromiso con la Informática</span>
+                <span  style="color: #000000;"class="section-heading-lower">Innovación Garantizada</span>
+              </h2>
+              <p style="color: #000000;" class="mb-0">Con un equipo especializado en informática y tecnología, en Gestión de Pedidos estamos comprometidos a proporcionar soluciones informáticas innovadoras de manera puntual y profesional.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Segundo Bloque (idéntico al Primer Bloque) -->
+    <section class="page-section cta" style="background-color: #ff0000; color: #000000;">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-inner text-center rounded">
+              <img class="img-fluid mb-3" src="{% static 'ProyectoWebApp/img/sharp.png' %}" style="float: center">
+              <h2 class="section-heading mb-4">
+                <span style="color: #000000;"class="section-heading-upper">Innovación en Informática</span>
+                <span style="color: #000000;"class="section-heading-lower">Sistemas Avanzados</span>
+              </h2>
+              <p  class="mb-3" >Entregamos soluciones informáticas avanzadas directamente a tu puerta. Nuestro compromiso es brindar productos y servicios de calidad con rapidez y eficiencia.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

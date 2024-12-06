@@ -1,0 +1,58 @@
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}  <!-- Cargar la etiqueta estática -->
+
+{% block content %}
+<div class="container">
+    <h2>Buscar Artículos por Sección</h2>
+
+    <!-- Formulario para seleccionar la sección -->
+    <form method="GET">
+        <div class="form-group">
+            <label for="seccion">Selecciona una sección:</label>
+            <select name="seccion" id="seccion" class="form-control">
+                <option value="">Seleccione...</option>
+                {% for seccion in secciones %}
+                    <option value="{{ seccion.nombre }}" {% if request.GET.seccion == seccion.nombre %}selected{% endif %}>
+                        {{ seccion.nombre }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+        <button  style="background-color: red;" type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    <hr>
+
+    <!-- Mostrar los artículos si los hay -->
+    <h3>Artículos en la sección seleccionada</h3>
+    <div class="row">
+        {% if articulos %}
+            {% for articulo in articulos %}
+                <div class="col-md-3 mb-4">
+                    <div class="card" style="width: 100%;">
+                        <!-- Imagen del artículo -->
+                        {% if articulo.imagen %}
+                            <img src="{{ articulo.imagen.url }}" class="card-img-top" alt="{{ articulo.nombre }}">
+                        {% else %}
+                            <img src="{% static 'default_image.jpg' %}" class="card-img-top" alt="Imagen no disponible">
+                        {% endif %}
+
+                        <!-- Detalles del artículo -->
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ articulo.nombre }}</h5>
+                            <p class="card-text">Precio: {{ articulo.precio }} €</p>
+                            <p class="card-text">Stock: {{ articulo.cantidad }}</p>
+                            <p class="card-text">Sección: {{ articulo.seccion.nombre }}</p>
+                        </div>
+
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No hay artículos en esta sección.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+

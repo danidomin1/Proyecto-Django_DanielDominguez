@@ -1,0 +1,14 @@
+{% extends "ProyectoWebApp/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container text-center" style="margin-top: 100px; margin-bottom: 200px;">
+    <h1 class="display-4">¡Registro Exitoso!</h1>
+    <p class="lead">Tu cuenta ha sido creada con éxito.</p>
+    <p class="mt-4">Ahora puedes iniciar sesión y disfrutar de todos los servicios que ofrecemos.</p>
+    <a href="{% url 'login' %}" class="btn btn-primary btn-lg mt-3">Ir al inicio de sesión</a>
+</div>
+
+{% endblock %}
+
